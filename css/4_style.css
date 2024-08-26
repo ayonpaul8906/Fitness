@@ -1,0 +1,328 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li, form {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #292828;
+    color: #ffffff;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background-color: #333;
+    width: 100%;
+    padding: 0.5rem 0;
+    flex-wrap: wrap; /* Allow items to wrap if necessary */
+}
+
+.navbar li {
+    margin: 0 0.2rem; /* Further reduce the gap between list items */
+    flex-shrink: 0;
+}
+
+.navbar li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.4rem 0.5rem; /* Further adjust padding for better fit */
+    display: block;
+    white-space: nowrap; /* Ensure the text does not wrap */
+}
+
+.navbar li:hover {
+    font-weight: bold;
+}
+
+/* Basic styles for sections */
+.container {
+    width: 100%;
+    max-width: 1200px; /* Set a maximum width for large screens */
+    margin: 0 auto; /* Center align the container */
+    padding: 0 1rem; /* Add padding to avoid touching edges on small screens */
+}
+
+.anim{
+    display: flex;
+}
+
+header h1 {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: #414664;
+    position: relative;
+    -webkit-text-stroke: 0.2vw #383d52;
+}
+
+header h1::before{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #00c3ff;
+    -webkit-text-stroke: 0vw #383d52;
+    overflow: hidden;
+    animation: animate 5s linear infinite;
+
+}
+
+@keyframes animate
+{
+    0%,10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+    0%{
+        width: 0;
+    }
+    0%{
+        width: 0;
+    }
+
+
+}
+
+.hero-image {
+    background: url() no-repeat center center cover;
+    height: 10vh;
+    margin: 5vh 0 3vh 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+    position: relative;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #082032;
+}
+
+.hero-content {
+    z-index: 1;    
+}
+
+.hero-content h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color:#ff4c29;
+}
+
+.static-txt {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 600;
+}
+.wrapper{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.wrapper .dynamic-txts{
+    margin-left: 5px;
+    line-height: 20px;
+    height: 20px;
+    overflow: hidden;
+    
+}
+
+.dynamic-txts li{
+    list-style: none;
+    color: #ff4c29;
+    position: relative;
+    top: 4px;
+    animation: slide 9s steps(3) infinite;
+}
+
+.dynamic-txts li{
+    position: relative;
+}
+
+.dynamic-txts li::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #082032;
+    border-left: 2px solid #ff4c29 ;
+    animation: typing 3s steps(15) infinite;
+}
+
+@keyframes typing {
+    40%,60%{
+        left: calc(100% + 20px);
+    }
+
+    100%{
+        left: 0;
+    }
+}
+
+@keyframes slide {
+    100%{
+        top: -60px;
+    }
+}
+
+@media (min-width: 320px) {
+    .hero-content h2 {
+        font-size: 1.4rem;
+     
+    }
+
+    .static-txt{
+        font-size: 1.0rem;
+    }
+
+}
+
+
+/* Section styles */
+section {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Responsive Section Styles */
+#Nutrition {
+    padding: 2rem 0;
+}
+
+#Nutrition h2 {
+    text-align: left; /* Align the heading to the left */
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    padding-left: 1rem; /* Add padding for spacing from the left edge */
+}
+
+/* Default image size */
+.location-item img {
+    width: 120px; /* Default width for images */
+    height: 80px; /* Default height for images */
+    object-fit: cover; /* Maintain aspect ratio while covering fixed dimensions */
+    border-radius: 5px;
+}
+
+/* Increase image size for tablets and small desktops */
+@media (min-width: 768px) {
+    .location-item img {
+        width: 180px; /* Increased width */
+        height: 120px; /* Increased height */
+    }
+}
+
+/* Further increase image size for larger desktops */
+@media (min-width: 1024px) {
+    .location-item img {
+        width: 220px; /* Further increased width */
+        height: 140px; /* Further increased height */
+    }
+}
+
+/* Even larger size for very large screens */
+@media (min-width: 1440px) {
+    .location-item img {
+        width: 260px; /* Even larger width */
+        height: 160px; /* Even larger height */
+    }
+}
+
+/* Style for h3 to align with images */
+.location-item h3 {
+    margin: 0.5rem 0 0; /* Space between image and text */
+    font-size: 1rem; /* Adjust font size for responsiveness */
+}
+
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 0.5rem; 
+    padding: 2rem 1rem; 
+}
+
+.location-item {
+    background-color: #f9f9f9;
+    padding: 0.5rem; 
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    height: auto; 
+    max-width: 260px; 
+    overflow: hidden; 
+}
+
+.location-item img:hover{
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .navbar li a {
+        font-size: 0.9rem; /* Decrease font size for smaller screens */
+        padding: 0.3rem 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar li a {
+        font-size: 0.8rem; /* Further decrease font size for very small screens */
+        padding: 0.3rem 0.3rem;
+    }
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
